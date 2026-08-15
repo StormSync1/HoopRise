@@ -6,6 +6,7 @@ release/
 .env.*
 !.env.example
 android/.gradle/
+phoneversion/phone-project/.gradle/
 android/build/
 android/app/build/
 *.keystore
