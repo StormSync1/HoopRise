@@ -1,4 +1,5 @@
 node_modules/
+phoneversion/phone-project/app/src/main/assets/assets/
 dist/
 release/
 .env
