@@ -1,4 +1,4 @@
-name: Court Level GitHub release
+name: HoopRise release
 on:
   workflow_dispatch:
   push:
@@ -12,12 +12,14 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 20, cache: npm }
       - run: npm ci --include=optional
+      - run: npm run typecheck
       - run: npm run dist --workspace desktopversion
-      - run: npm run build --workspace desktopversion
+      - run: npm run sync:native --workspace phoneversion
       - shell: pwsh
-        run: Compress-Archive -Path phoneversion/phone-project -DestinationPath Court-Level-Phone-Project.zip
+        run: Compress-Archive -Path phoneversion/phone-project -DestinationPath HoopRise-Phone-Project.zip
       - uses: softprops/action-gh-release@v2
         with:
           files: |
-            desktopversion/release/Court-Level-Setup-*.exe
-            Court-Level-Phone-Project.zip
+            desktopversion/release/HoopRise-Setup-*.exe
+            HoopRise-Phone-Project.zip
+          generate_release_notes: true
