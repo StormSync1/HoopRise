@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Court Level</string>
+    <string name="title_activity_main">Court Level</string>
+    <string name="package_name">com.courtlevel.player</string>
+    <string name="custom_url_scheme">com.courtlevel.player</string>
+</resources>

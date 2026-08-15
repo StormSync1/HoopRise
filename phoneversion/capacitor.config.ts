@@ -1,0 +1,1 @@
+import type {CapacitorConfig} from '@capacitor/cli'; const config:CapacitorConfig={appId:'com.courtlevel.player',appName:'Court Level',webDir:'dist',plugins:{SplashScreen:{launchShowDuration:0}}}; export default config;

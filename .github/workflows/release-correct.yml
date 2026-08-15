@@ -1,0 +1,23 @@
+name: Court Level GitHub release
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+permissions: { contents: write }
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci --include=optional
+      - run: npm run dist --workspace desktopversion
+      - run: npm run build --workspace desktopversion
+      - shell: pwsh
+        run: Compress-Archive -Path phoneversion/phone-project -DestinationPath Court-Level-Phone-Project.zip
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            desktopversion/release/Court-Level-Setup-*.exe
+            Court-Level-Phone-Project.zip

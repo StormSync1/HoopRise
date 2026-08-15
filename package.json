@@ -1,0 +1,19 @@
+{
+  "name": "court-level",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "desktopversion",
+    "phoneversion"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace desktopversion",
+    "build": "npm run build --workspace desktopversion",
+    "build:android": "npm run build --workspace phoneversion && npx cap sync android",
+    "typecheck": "npm run typecheck --workspace shared && npm run typecheck --workspace desktopversion && npm run typecheck --workspace phoneversion"
+  },
+  "devDependencies": {
+    "app-builder-bin": "^5.0.0-alpha.10",
+    "electron-packager": "^17.1.2"
+  }
+}
