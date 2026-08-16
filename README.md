@@ -20,7 +20,7 @@
 
 The easiest option is to download `HoopRise-debug.apk` from the release, copy it to your Android phone, open it, and allow installation from that source when Android asks. See [BUILDAPK.md](BUILDAPK.md) for the complete phone-install guide.
 
-The release also includes `HoopRise-Phone-Project.zip` for developers who want to open the project in Android Studio.
+The release also includes `HoopRise-Phone-Project.zip` for developers who want to open the project in Android Studio. The extracted project includes [BUILD-APK.md](phoneversion/phone-project/BUILD-APK.md) with the same step-by-step build instructions.
 
 ## What is included
 
