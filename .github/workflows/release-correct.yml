@@ -15,11 +15,19 @@ jobs:
       - run: npm run typecheck
       - run: npm run dist --workspace desktopversion
       - run: npm run sync:native --workspace phoneversion
+      - name: Build Android APK
+        shell: pwsh
+        working-directory: phoneversion/phone-project
+        run: .\gradlew.bat assembleDebug
+      - name: Rename Android APK
+        shell: pwsh
+        run: Copy-Item phoneversion/phone-project/app/build/outputs/apk/debug/app-debug.apk HoopRise-debug.apk
       - shell: pwsh
         run: Compress-Archive -Path phoneversion/phone-project -DestinationPath HoopRise-Phone-Project.zip
       - uses: softprops/action-gh-release@v2
         with:
           files: |
             desktopversion/release/HoopRise-Setup-*.exe
+            HoopRise-debug.apk
             HoopRise-Phone-Project.zip
           generate_release_notes: true
